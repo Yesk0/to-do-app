@@ -17,6 +17,9 @@ export default function Home() {
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
+  useEffect(() => {
+    setOpenMenuIndex(null);
+  }, [activeTab]);
 
   const filteredTasks = tasks.filter((task) => task.status === activeTab);
 
