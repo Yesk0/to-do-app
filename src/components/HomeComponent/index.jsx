@@ -33,7 +33,7 @@ export default function Home() {
   };
   const handleMoveToTrash = (id) => {
     const updated = tasks.map((t) =>
-      t.id === id ? { ...t, status: "trash" } : t
+      t.id === id ? { ...t, status: "trash", previousStatus: t.status } : t
     );
     setTasks(updated);
     setActiveTab("trash");
@@ -50,16 +50,29 @@ export default function Home() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (taskText.trim()) {
-      setTasks([...tasks, { id: Date.now(), text: taskText, status: "todo" }]);
+      setTasks([
+        ...tasks,
+        {
+          id: Date.now(),
+          text: taskText,
+          status: "todo",
+          previousStatus: "todo",
+        },
+      ]);
       setTaskText("");
     }
   };
   const handleCheck = (id) => {
-    const updated = tasks.map((task) =>
-      task.id === id
-        ? { ...task, status: task.status === "done" ? "todo" : "done" }
-        : task
-    );
+    const updated = tasks.map((task) => {
+      if (task.id === id) {
+        if (task.status === "trash") return task;
+        return {
+          ...task,
+          status: task.status === "done" ? "todo" : "done",
+        };
+      }
+      return task;
+    });
     setTasks(updated);
   };
 
@@ -169,11 +182,19 @@ export default function Home() {
                   <input
                     className="checkbox inter-normal text-[16px] leading-[22px] border-[1.6px] rounded-[4px] bg-[#F1F1F1] border-[#AEAEAE] hover:cursor-pointer"
                     type="checkbox"
-                    checked={task.status === "done"}
+                    checked={
+                      task.status === "done" ||
+                      (task.status === "trash" &&
+                        task.previousStatus === "done")
+                    }
                     onChange={() => handleCheck(task.id)}
                     style={{
                       backgroundColor:
-                        task.status === "done" ? "#712FFF" : "#F1F1F1",
+                        task.status === "done" ||
+                        (task.status === "trash" &&
+                          task.previousStatus === "done")
+                          ? "#712FFF"
+                          : "#F1F1F1",
                     }}
                   />
                 </div>
