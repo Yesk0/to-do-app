@@ -1,7 +1,7 @@
-import plusMath from "../../assets/Plus Math.png";
-import verticalDots from "../../assets/Vertical dots.svg";
-import trash from "../../assets/Trash.svg";
-import checkmark from "../../assets/Checkmark.svg";
+import plusMath from "../assets/Plus Math.png";
+import verticalDots from "../assets/Vertical dots.svg";
+import trash from "../assets/Trash.svg";
+import checkmark from "../assets/Checkmark.svg";
 import { useState, useEffect } from "react";
 
 export default function Home() {
