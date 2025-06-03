@@ -203,7 +203,7 @@ export default function Home() {
                 </div>
               </div>
               <p
-                className="list"
+                className="text"
                 style={{
                   textDecoration:
                     task.status === "done" ? "line-through" : "none",
