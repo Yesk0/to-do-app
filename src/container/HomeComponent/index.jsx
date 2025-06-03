@@ -101,7 +101,7 @@ export default function Home() {
                 color: activeTab === "todo" ? "white" : "black",
               }}
             >
-              <span>To Do</span>
+              <span className="span">To Do</span>
             </button>
             <button
               className="btn inter-bold text-[14px] leading-[18px] py-[11px] px-[24px] rounded-full h-auto bg-[#081E340D] hover:cursor-pointer"
@@ -158,7 +158,7 @@ export default function Home() {
             <img src={plusMath} alt="Plus Math" />
           </button>
         </div>
-        <div className="sectionName mt-[64px] flex flex-col gap-[24px]">
+        <div className="section mt-[64px] flex flex-col gap-[24px]">
           <h1 className="heading inter-bold text-[24px] leading-[28px]">
             To Do
           </h1>
@@ -216,13 +216,13 @@ export default function Home() {
                   {activeTab !== "trash" ? (
                     <div className="menu bg-[#E4E6E7] py-[12px] pl-[4px] w-[240px] rounded-[12px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.16)] absolute top-[30px] z-10">
                       <button
-                        className="moveTrash flex gap-[10px] hover:cursor-pointer"
+                        className="btn flex gap-[10px] hover:cursor-pointer"
                         onClick={() => handleMoveToTrash(task.id)}
                       >
-                        <div className="icon__trash flex items-center justify-center w-[24px] h-[24px]">
+                        <div className="icon flex items-center justify-center w-[24px] h-[24px]">
                           <img src={trash} alt="Trash" />
                         </div>
-                        <p className="text__trash inter-normal text-[14px] leading-[18px] flex items-center">
+                        <p className="text inter-normal text-[14px] leading-[18px] flex items-center">
                           Move to Trash
                         </p>
                       </button>
@@ -231,24 +231,24 @@ export default function Home() {
                     <div className="menu bg-[#E4E6E7] py-[12px] pl-[4px] w-[240px] rounded-[12px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.16)] absolute top-[30px] z-10">
                       <div className="menu__items flex flex-col gap-[10px]">
                         <button
-                          className="delete flex gap-[10px] hover:cursor-pointer"
+                          className="btn flex gap-[10px] hover:cursor-pointer"
                           onClick={() => handleDelete(task.id)}
                         >
-                          <div className="icon__delete flex items-center justify-center w-[24px] h-[24px]">
+                          <div className="icon flex items-center justify-center w-[24px] h-[24px]">
                             <img src={trash} alt="Trash" />
                           </div>
-                          <p className="text__trash inter-normal text-[14px] leading-[18px] flex items-center">
+                          <p className="text inter-normal text-[14px] leading-[18px] flex items-center">
                             Delete Forever
                           </p>
                         </button>
                         <button
-                          className="moveToDo flex gap-[10px] hover:cursor-pointer"
+                          className="btn flex gap-[10px] hover:cursor-pointer"
                           onClick={() => handleMoveToToDo(task.id)}
                         >
-                          <div className="icon__checkmark flex items-center justify-center w-[24px] h-[24px]">
+                          <div className="icon flex items-center justify-center w-[24px] h-[24px]">
                             <img src={checkmark} alt="Checkmark" />
                           </div>
-                          <p className="text__checkmark inter-normal text-[14px] leading-[18px] flex items-center">
+                          <p className="text inter-normal text-[14px] leading-[18px] flex items-center">
                             Move Back To To Do
                           </p>
                         </button>
@@ -264,13 +264,13 @@ export default function Home() {
       <footer className="footer px-[80px] py-[32px] flex justify-between">
         <div className="frame-22">
           <div className="author">
-            <p className="author-text inter-normal text-[14px] leading-[18px]">
+            <p className="author__text inter-normal text-[14px] leading-[18px]">
               Made with 🖤 at nFactorial in 2022.
             </p>
           </div>
         </div>
         <div className="resource">
-          <p className="resource-text inter-normal text-[14px] leading-[18px] text-[#6c7a89]">
+          <p className="resource__text inter-normal text-[14px] leading-[18px] text-[#6c7a89]">
             Credits: icons from{" "}
             <a className="underline" href="https://icons8.com/">
               Icons8

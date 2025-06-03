@@ -1,5 +1,5 @@
 import "./App.css";
-import Home from "./components/HomeComponent";
+import Home from "./container/HomeComponent";
 
 export default function App() {
   return (
