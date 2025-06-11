@@ -11,3 +11,51 @@
   font-weight: 500;
   font-style: normal;
 }
+
+@media (max-width: 1062px) {
+  .menu__add {
+    bottom: 100%;
+  }
+  .task-contols {
+    margin-top: 149px;
+  }
+}
+
+@media (max-width: 807px) {
+  .item {
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .task-contols {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+  .menu__add{
+    left: 77px;
+  }
+}
+@media (max-width: 462px) {
+  .pager {
+    flex-direction: column;
+    align-items: start;
+  }
+  .menu__add {
+    bottom: 249px;
+    left: 0;
+  }
+  .main{
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 50px;
+  }
+  .footer{
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}

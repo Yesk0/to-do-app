@@ -81,7 +81,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="main pt-[100px] pb-[246px] px-[80px]">
+      <main className="main pt-[100px] pb-[246px] px-[80px] relative">
         <div className="title flex flex-col gap-[24px]">
           <h1 className="heading inter-bold text-[34px] leading-[38px]">
             Simple To Do List
@@ -127,7 +127,7 @@ export default function Home() {
             </button>
           </div>
           {showAdding && (
-            <div className="menu bg-[#E4E6E7] flex flex-col gap-[10px] p-[16px] w-[268px] rounded-[10px] absolute right-[77px] bottom-[0] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.16)]">
+            <div className="menu__add bg-[#E4E6E7] flex flex-col gap-[10px] p-[16px] w-[268px] rounded-[10px] absolute right-[77px] bottom-[0] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.16)]">
               <h1 className="heading inter-bold text-[16px] leading-[22px]">
                 Add New To Do
               </h1>
@@ -168,7 +168,7 @@ export default function Home() {
           {filteredTasks.map((task) => (
             <div
               key={task.id}
-              className="item flex items-center gap-[8px] relative w-[654px]"
+              className="item flex items-center gap-[8px] w-[50.154%]"
               style={{
                 backgroundColor:
                   openMenuIndex === task.id ? "#E4E6E7" : "transparent",
@@ -203,10 +203,13 @@ export default function Home() {
                 </div>
               </div>
               <p
-                className="text"
+                className="text break-all w-[100%]"
                 style={{
                   textDecoration:
-                    task.status === "done" ? "line-through" : "none",
+                    task.status === "done" ||
+                    (task.status === "trash" && task.previousStatus === "done")
+                      ? "line-through"
+                      : "none",
                 }}
               >
                 {task.text}
@@ -214,7 +217,7 @@ export default function Home() {
               {openMenuIndex === task.id && (
                 <>
                   {activeTab !== "trash" ? (
-                    <div className="menu bg-[#E4E6E7] py-[12px] pl-[4px] w-[240px] rounded-[12px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.16)] absolute top-[30px] z-10">
+                    <div className="menu__trash bg-[#E4E6E7] py-[12px] pl-[4px] w-[240px] rounded-[12px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.16)] absolute bottom-[192px] z-10">
                       <button
                         className="btn flex gap-[10px] hover:cursor-pointer"
                         onClick={() => handleMoveToTrash(task.id)}
@@ -228,8 +231,8 @@ export default function Home() {
                       </button>
                     </div>
                   ) : (
-                    <div className="menu bg-[#E4E6E7] py-[12px] pl-[4px] w-[240px] rounded-[12px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.16)] absolute top-[30px] z-10">
-                      <div className="menu__items flex flex-col gap-[10px]">
+                    <div className="menu__delete bg-[#E4E6E7] py-[12px] pl-[4px] w-[240px] rounded-[12px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.16)] absolute bottom-[158px] z-10">
+                      <div className="delete-items flex flex-col gap-[10px]">
                         <button
                           className="btn flex gap-[10px] hover:cursor-pointer"
                           onClick={() => handleDelete(task.id)}
