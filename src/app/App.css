@@ -13,7 +13,7 @@
 }
 
 @media (max-width: 1062px) {
-  .menu__add {
+  .widget__add {
     bottom: 100%;
   }
   .task-contols {
@@ -36,25 +36,25 @@
     flex-direction: column-reverse;
     gap: 24px;
   }
-  .menu__add{
+  .widget__add {
     left: 77px;
   }
 }
 @media (max-width: 462px) {
-  .pager {
+  .sections {
     flex-direction: column;
     align-items: start;
   }
-  .menu__add {
+  .widget__add {
     bottom: 249px;
     left: 0;
   }
-  .main{
+  .main {
     padding-right: 40px;
     padding-left: 40px;
     padding-top: 50px;
   }
-  .footer{
+  .footer {
     padding-right: 40px;
     padding-left: 40px;
   }
